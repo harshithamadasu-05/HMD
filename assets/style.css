@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+    --bg-color: #0b0f19;
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Base App Background with Police Digital Theme & Floating Motion */
+.stApp {
+    background-image: linear-gradient(rgba(11, 15, 25, 0.82), rgba(11, 15, 25, 0.82)), url("app/assets/police_animated.svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Cyber Scanning Line overlay (White/Silver theme) */
+.stApp::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes scanLine {
+    0% { top: -5%; }
+    100% { top: 105%; }
+}
+
+/* Glassmorphism for the main two cards */
+[data-testid="column"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+[data-testid="column"]:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 30px 60px 0 rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Titles and Headers */
+h1 {
+    background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px;
+    margin-bottom: 0px !important;
+}
+
+h3 {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Input Fields styling */
+div[data-baseweb="textarea"] {
+    background-color: rgba(10, 15, 30, 0.9) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    padding: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-baseweb="textarea"]:focus-within {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25) !important;
+}
+
+textarea {
+    color: #f1f5f9 !important;
+    font-size: 1.05rem !important;
+}
+
+/* Realistic Glassmorphic Icon Container */
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.3);
+    color: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+    transition: all 0.3s ease;
+}
+
+[data-testid="column"]:hover .icon-container {
+    transform: rotate(5deg) scale(1.05);
+    border-color: rgba(255,255,255,0.25);
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+}
+
+.panel-icon {
+    font-size: 1.2rem;
+}
+
+/* Button styling with neon glow */
+div.stButton > button {
+    background: var(--primary-gradient) !important;
+    color: #0b0f19 !important;
+    border: none !important;
+    padding: 0.9rem 2.2rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.5px;
+    width: 100% !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15) !important;
+    cursor: pointer;
+}
+
+div.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25), 0 0 15px rgba(255, 255, 255, 0.2) !important;
+    color: #000000 !important;
+}
+
+div.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+/* Alerts and Results Styling */
+.stAlert {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* Progress bar customizations (White/silver theme) */
+div[data-testid="stMarkdownContainer"] + div > div > div > div {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
